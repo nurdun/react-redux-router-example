@@ -6,9 +6,25 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { store } from './store/store';  
 
-ReactDOM.render(
+import {
+    BrowserRouter,
+    HashRouter as Router,
+    Route,
+    Link
+  } from 'react-router-dom'
+
+  //declare route
+ const route = (
+     //use Router instead of HashRouter
     <Provider store = {store}>
-        <Login />
-    </Provider>,    
-    document.getElementById('root'));
+        <Router history={Router}>
+            <Route path='/' component={Login}/>          
+        </Router>
+    </Provider>
+ ) 
+
+ReactDOM.render(
+    route,
+    document.getElementById('root')
+);
 registerServiceWorker();

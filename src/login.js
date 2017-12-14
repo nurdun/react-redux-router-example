@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';   
 import { connect } from 'react-redux'; 
+
 import { buttonClickAction,changeTextAction } from './action/action';
 
 import './login.css';
@@ -38,6 +39,7 @@ class Login extends Component{
     async userValidate(){
         let userRes = await this.toLogin();
         if(userRes.status=="ok")this.state.isUser = true;
+        if(this.state.isUser)
         console.log(`isUser is :${this.state.isUser}`); 
     }
     
@@ -71,7 +73,6 @@ class Login extends Component{
             color:#fff;
             border:0;
             background:#0499fd;
-
         ` 
         return (  
             // <div>  
