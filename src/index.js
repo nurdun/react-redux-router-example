@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Login from './login';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { store } from './store/store';  
@@ -13,12 +12,16 @@ import {
     Link
   } from 'react-router-dom'
 
+  import Login from './login';
+  import Home from './component/home';
+
   //declare route
  const route = (
      //use Router instead of HashRouter
     <Provider store = {store}>
         <Router history={Router}>
-            <Route path='/' component={Login}/>          
+            <Route path='/' component={Login}/> 
+            <Route path='home' component={Home}/>                   
         </Router>
     </Provider>
  ) 
