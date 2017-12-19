@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { connect } from 'react-redux'; 
 
 import { buttonClickAction,changeTextAction } from './action/action';
+import {toLogIn,LOG_OUT} from './action/loginAction';
+import { logState } from './reducer/loginReducer';
+import { rootReducer } from './reducer/reducer';
 
 import './login.css';
   
@@ -16,6 +19,7 @@ class Login extends Component{
             isUser:Boolean
         };
         this.userValidate = this.userValidate.bind(this);
+        this.toLogin = this.toLogin.bind(this);
     }
 
     toLogin(){
@@ -27,17 +31,28 @@ class Login extends Component{
         //             password:this.refs.password.value
         //         })
         // })
-        return fetch("test.json",{  
-            method:"get"
-        })
-        .then(res=>res.json())
-        .catch(err=>err)
+        // return fetch("test.json",{  
+        //     method:"get"
+        // })
+        // .then(res=>res.json())
+        // .catch(err=>err)
+        // dispatch(
+        //     logState({
+
+        //     })
+        // )
+        const { dispatch } = this.props
+        dispatch(toLogIn({
+            username:this.refs.username.value,
+            password:this.refs.password.value
+        }))
     }
 
     //until user information has complete to post
     // according to the post request to decide next step
     async userValidate(){
         let userRes = await this.toLogin();
+        const { dispatch } = this.props;
         if(userRes.status=="ok")this.state.isUser = true;
         if(this.state.isUser)
         console.log(`isUser is :${this.state.isUser}`); 
@@ -82,7 +97,7 @@ class Login extends Component{
             <Form>
                 <Input type="text" name="username" ref="username" placeholder="username"/>
                 <Input type="password" name="password" ref="password" placeholder="password" />
-                <Submit onClick = {this.userValidate} >登陆</Submit> 
+                <Submit onClick = {this.toLogin} >登陆</Submit> 
             </Form>  
         );  
     }  
@@ -96,8 +111,8 @@ function mapStateToProps(state) {
 //映射Redux actions到组件的属性  
 function mapDispatchToProps(dispatch){  
     return{  
-        onButtonClick:()=>dispatch(buttonClickAction),  
-        onChangeText:()=>dispatch(changeTextAction)  
+        // onLogIn:()=>dispatch(LOG_IN.type),  
+        onLogOut:()=>dispatch(LOG_OUT.type)  
     }  
 }  
   

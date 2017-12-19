@@ -17,15 +17,8 @@ class Home extends Component{
     }
 
     toLogin(){
-        // return fetch("user.json",{
-        //     method:"post",
-        //     body:JSON.stringify(
-        //         {
-        //             username:this.refs.username.value,
-        //             password:this.refs.password.value
-        //         })
-        // })
-        return fetch("test.json",{  
+        
+        return fetch("test.json",{   
             method:"get"
         })
         .then(res=>res.json())
@@ -42,47 +35,11 @@ class Home extends Component{
     }
     
     render() {  
-        const {text, onChangeText, onButtonClick} = this.props;
-
-        //use styled-components
-        const Form = styled.div`
-            margin:200px auto;
-            width:300px;
-            height:300px;
-            box-sizing:border-box;
-            padding:80px 20px 80px 20px;
-            text-align:center;
-            border-radius:5px;
-            box-shadow: .1px .1px .5px .5px #ccc;
-        `
-        const Input = styled.input`
-            width:95%;
-            height:30px;
-            margin-top:10px;
-            padding-left:10px;
-            border:0;
-            border-radius:5px;
-            box-shadow:.1px .1px .5px .5px #ccc; 
-        ` 
-        const Submit = styled.button`
-            margin-top:20px;
-            width:100%;
-            height:30px;
-            color:#fff;
-            border:0;
-            background:#0499fd;
-        ` 
-        return (  
-            // <div>  
-            //     <h1 onClick={onChangeText}> {text} </h1>  
-            //     <button onClick={onButtonClick}>click me</button>  
-            // </div>
-            <Form>
-                <Input type="text" name="username" ref="username" placeholder="username"/>
-                <Input type="password" name="password" ref="password" placeholder="password" />
-                <Submit onClick = {this.userValidate} >登陆</Submit> 
-            </Form>  
-        );  
+        return (
+            <div>
+                welcome to homePage
+            </div>
+        )
     }  
 }  
 
