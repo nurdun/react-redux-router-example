@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
-import { configureStore } from './store/store';  
+import { store } from './store/store';  
 
 import {
     BrowserRouter,
@@ -17,8 +17,14 @@ import {
 
 
   class App extends React.Component{
+      constructor(props){
+          super(props);
+          this.state = {
+            loginState:0
+          }
+      }
       render(){
-          let Content = this.props.loginState!==1?Login:Home;
+          let Content = this.state.loginState!==1?Login:Home;
           return (
               <div>
                   <Content />
@@ -31,7 +37,6 @@ import {
           )
       }
   }
-  const store = configureStore();
 
   //declare route
  const route = (

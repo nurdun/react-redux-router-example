@@ -16,7 +16,8 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isUser:Boolean
+            isUser:Boolean,
+            loginState:0
         };
         this.userValidate = this.userValidate.bind(this);
         this.toLogin = this.toLogin.bind(this);
@@ -41,11 +42,9 @@ class Login extends Component{
 
         //     })
         // )
-        const { dispatch } = this.props
-        dispatch(toLogIn({
-            username:this.refs.username.value,
-            password:this.refs.password.value
-        }))
+        // const { dispatch } = this.props
+        // dispatch(toLogIn())
+        this.props.dispatch(toLogIn);
     }
 
     //until user information has complete to post
@@ -53,7 +52,7 @@ class Login extends Component{
     async userValidate(){
         let userRes = await this.toLogin();
         const { dispatch } = this.props;
-        if(userRes.status=="ok")this.state.isUser = true;
+        if(userRes.status==="ok")this.state.isUser = true;
         if(this.state.isUser)
         console.log(`isUser is :${this.state.isUser}`); 
     }
@@ -97,7 +96,7 @@ class Login extends Component{
             <Form>
                 <Input type="text" name="username" ref="username" placeholder="username"/>
                 <Input type="password" name="password" ref="password" placeholder="password" />
-                <Submit onClick = {this.toLogin} >登陆</Submit> 
+                <Submit onClick = {this.props.onLogIn} >登陆</Submit> 
             </Form>  
         );  
     }  
@@ -105,14 +104,17 @@ class Login extends Component{
 
 //映射Redux state到组件的属性  
 function mapStateToProps(state) {  
-    return { text: state.text }  
+    return { loginState: state.loginState }  
 }  
   
 //映射Redux actions到组件的属性  
 function mapDispatchToProps(dispatch){  
     return{  
-        // onLogIn:()=>dispatch(LOG_IN.type),  
-        onLogOut:()=>dispatch(LOG_OUT.type)  
+        onLogIn:()=>{
+            dispatch(rootReducer(toLogIn));
+            console.log(this.props);
+        // onLogOut:()=>dispatch(LOG_OUT.type) 
+        } 
     }  
 }  
   

@@ -1,7 +1,7 @@
 
 
 const initialState = {  
-    loginState:0 
+    loginState:0
 }
 export const logState = (state = initialState,action)=>{
     debugger
@@ -17,4 +17,5 @@ export const logState = (state = initialState,action)=>{
         default:
             return initialState;
     }
+    console.log(logState);
 }

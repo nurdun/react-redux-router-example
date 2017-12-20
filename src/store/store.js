@@ -9,6 +9,7 @@ const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 // export let store = createStore(reducer);
 // export let logStore = createStore(logState);
 
-export const configureStore = (initialState)=>{
-    return createStoreWithMiddleware(rootReducer,initialState);
+const configureStore = (initialState,action)=>{
+    return createStoreWithMiddleware(rootReducer,initialState,action);
 }
+export const store = configureStore();
