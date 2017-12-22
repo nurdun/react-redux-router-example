@@ -20,19 +20,26 @@ import {
       constructor(props){
           super(props);
           this.state = {
-            loginState:0
+            // loginState:0
           }
       }
+      
+      componentWillReceiveProps(nextProps){
+          console.log(nextProps.loginState);
+      }
+
       render(){
-          let Content = this.state.loginState!==1?Login:Home;
+        //   let Content = this.props.loginState!==1?Login:Home;
           return (
               <div>
-                  <Content />
-                  <footer>
+                  {/* <Content /> */}
+                {this.props.loginState !== 1 && <Login />}	
+				{this.props.loginState === 1 && <Home />}
+                <footer>
                     <h3>welcome to my react demo</h3>
                     <span className="author">@author by nurdun</span>
-                  </footer> 
-                  {this.props.children}   
+                </footer> 
+                {this.props.children}   
               </div>
           )
       }

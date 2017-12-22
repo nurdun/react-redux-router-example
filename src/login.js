@@ -17,7 +17,7 @@ class Login extends Component{
         super(props);
         this.state = {
             isUser:Boolean,
-            loginState:0
+            // loginState:0
         };
         this.userValidate = this.userValidate.bind(this);
         this.toLogin = this.toLogin.bind(this);
@@ -42,9 +42,9 @@ class Login extends Component{
 
         //     })
         // )
-        // const { dispatch } = this.props
-        // dispatch(toLogIn())
-        this.props.dispatch(toLogIn);
+        localStorage.setItem("status","ok");
+        const { dispatch } = this.props
+        dispatch(toLogIn())
     }
 
     //until user information has complete to post
@@ -96,30 +96,31 @@ class Login extends Component{
             <Form>
                 <Input type="text" name="username" ref="username" placeholder="username"/>
                 <Input type="password" name="password" ref="password" placeholder="password" />
-                <Submit onClick = {this.props.onLogIn} >登陆</Submit> 
+                <Submit onClick = {this.toLogin} >登陆</Submit> 
             </Form>  
         );  
     }  
 }  
 
 //映射Redux state到组件的属性  
-function mapStateToProps(state) {  
-    return { loginState: state.loginState }  
-}  
+// function mapStateToProps(state) {  
+//     return { loginState: state.loginState }  
+// }  
   
 //映射Redux actions到组件的属性  
-function mapDispatchToProps(dispatch){  
-    return{  
-        onLogIn:()=>{
-            dispatch(rootReducer(toLogIn));
-            console.log(this.props);
-        // onLogOut:()=>dispatch(LOG_OUT.type) 
-        } 
-    }  
-}  
+// function mapDispatchToProps(dispatch){  
+//     return{  
+//         onLogIn:()=>{
+//             dispatch(rootReducer(toLogIn));
+//             console.log(this.props);
+//         // onLogOut:()=>dispatch(LOG_OUT.type) 
+//         } 
+//     }  
+// }  
   
 //连接组件  
-Login = connect(mapStateToProps, mapDispatchToProps)(Login)  
+// Login = connect(mapStateToProps, mapDispatchToProps)(Login) 
+Login = connect()(Login); 
 
 //导出组件
 export default Login;

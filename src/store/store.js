@@ -4,12 +4,13 @@ import { rootReducer } from '../reducer/reducer';
 import { logState } from '../reducer/loginReducer';
 
 //store 
-const middleware = [thunk];
-const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore); 
+const middlewares = [thunk];
+const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore); 
 // export let store = createStore(reducer);
 // export let logStore = createStore(logState);
 
-const configureStore = (initialState,action)=>{
-    return createStoreWithMiddleware(rootReducer,initialState,action);
+const configureStore = (initialState)=>{
+    debugger
+    return createStoreWithMiddleware(rootReducer,initialState);
 }
 export const store = configureStore();

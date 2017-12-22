@@ -1,10 +1,10 @@
 
 //action  
-const changeTextAction = {  
-    type:'CHANGE_TEXT'  
-}  
-const buttonClickAction = {  
-    type:'BUTTON_CLICK'  
-} 
+// const changeTextAction = {  
+//     type:'CHANGE_TEXT'  
+// }  
+// const buttonClickAction = {  
+//     type:'BUTTON_CLICK'  
+// } 
 
-export { changeTextAction,buttonClickAction };
+// export { changeTextAction,buttonClickAction };
