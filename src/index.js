@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';  
 
 import {
-    BrowserRouter,
-    HashRouter as Router,
+    BrowserRouter as Router,
+    HashRouter,
     Route,
     Link
   } from 'react-router-dom'
@@ -23,6 +23,11 @@ import {
             // loginState:0
           }
       }
+      componentDidMount() {
+          console.log(this.props);
+          console.log(this.state);
+          console.log(store);
+      }
       
       componentWillReceiveProps(nextProps){
           console.log(nextProps.loginState);
@@ -30,6 +35,7 @@ import {
 
       render(){
         //   let Content = this.props.loginState!==1?Login:Home;
+        console.log(this.props);
           return (
               <div>
                   {/* <Content /> */}
@@ -60,3 +66,6 @@ ReactDOM.render(
     document.getElementById('root')
 );
 registerServiceWorker();
+
+
+

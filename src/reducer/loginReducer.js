@@ -1,7 +1,7 @@
 import { LOG_IN,LOG_OUT} from '../actionTypes/loginTypes';
 
 const initialState = {  
-    loginState:0
+    loginState:1
 }
 export const logState = (state = initialState,action)=>{
     debugger

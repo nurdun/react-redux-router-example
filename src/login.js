@@ -22,6 +22,9 @@ class Login extends Component{
         this.userValidate = this.userValidate.bind(this);
         this.toLogin = this.toLogin.bind(this);
     }
+    componentWillMount(){
+        console.log(this.props);
+    }
 
     toLogin(){
         // return fetch("user.json",{
@@ -102,25 +105,24 @@ class Login extends Component{
     }  
 }  
 
-//映射Redux state到组件的属性  
-// function mapStateToProps(state) {  
-//     return { loginState: state.loginState }  
-// }  
+// 映射Redux state到组件的属性  
+function mapStateToProps(state) {  
+    let loginState = state; 
+    return loginState
+}  
   
 //映射Redux actions到组件的属性  
 // function mapDispatchToProps(dispatch){  
 //     return{  
 //         onLogIn:()=>{
-//             dispatch(rootReducer(toLogIn));
-//             console.log(this.props);
-//         // onLogOut:()=>dispatch(LOG_OUT.type) 
+//             dispatch(rootReducer(toLogIn)); 
 //         } 
 //     }  
 // }  
   
 //连接组件  
 // Login = connect(mapStateToProps, mapDispatchToProps)(Login) 
-Login = connect()(Login); 
+Login = connect(mapStateToProps)(Login); 
 
 //导出组件
 export default Login;
