@@ -9,7 +9,6 @@ const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
 // export let logStore = createStore(logState);
 
 const configureStore = (initialState)=>{
-    debugger
     return createStoreWithMiddleware(rootReducer,initialState);
 }
 export const store = configureStore();

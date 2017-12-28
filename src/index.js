@@ -12,8 +12,9 @@ import {
     Link
   } from 'react-router-dom'
 
-  import Login from './login';
-  import Home from './component/home';
+//   import Login from './login';
+//   import Home from './component/home';
+import Routes from './routes';
 
 
   class App extends React.Component{
@@ -38,9 +39,10 @@ import {
         console.log(this.props);
           return (
               <div>
-                  {/* <Content /> */}
+                  {/* <Content />
                 {this.props.loginState !== 1 && <Login />}	
-				{this.props.loginState === 1 && <Home />}
+                {this.props.loginState === 1 && <Home />} */}
+                <Routes />
                 <footer>
                     <h3>welcome to my react demo</h3>
                     <span className="author">@author by nurdun</span>

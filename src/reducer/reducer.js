@@ -22,8 +22,8 @@
 //     }  
 // } 
 import { combineReducers } from 'redux';
-import { logState } from './loginReducer';
+import { setLogState } from './loginReducer';
 
 export const rootReducer = combineReducers({
-    logState
+    setLogState
 })

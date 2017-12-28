@@ -1,10 +1,9 @@
 import { LOG_IN,LOG_OUT} from '../actionTypes/loginTypes';
 
 const initialState = {  
-    loginState:1
+    loginState:0
 }
-export const logState = (state = initialState,action)=>{
-    debugger
+export const setLogState = (state = initialState,action)=>{
     switch(action.type){
         case 'LOG_IN':
             return {

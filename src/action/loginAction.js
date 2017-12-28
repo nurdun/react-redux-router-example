@@ -6,7 +6,6 @@
 import { LOG_IN,LOG_OUT } from '../actionTypes/loginTypes';
  
 const toLogIn = ()=>{
-    debugger
     return dispatch => {
         //  fetch('test.json')
         // .then(res=>res.json())

@@ -61,7 +61,7 @@ class Login extends Component{
     }
     
     render() {  
-        const {text, onChangeText, onButtonClick} = this.props;
+        // const {text, onChangeText, onButtonClick} = this.props;
 
         //use styled-components
         const Form = styled.div`
@@ -106,10 +106,9 @@ class Login extends Component{
 }  
 
 // 映射Redux state到组件的属性  
-function mapStateToProps(state) {  
-    let loginState = state; 
-    return loginState
-}  
+// function mapStateToProps(state) {  
+//     return { loginState: state.setLogState }  
+// }  
   
 //映射Redux actions到组件的属性  
 // function mapDispatchToProps(dispatch){  
@@ -122,7 +121,7 @@ function mapStateToProps(state) {
   
 //连接组件  
 // Login = connect(mapStateToProps, mapDispatchToProps)(Login) 
-Login = connect(mapStateToProps)(Login); 
+Login = connect()(Login); 
 
 //导出组件
 export default Login;
