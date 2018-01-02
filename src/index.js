@@ -29,19 +29,11 @@ import Routes from './routes';
           console.log(this.state);
           console.log(store);
       }
-      
-      componentWillReceiveProps(nextProps){
-          console.log(nextProps.loginState);
-      }
 
       render(){
-        //   let Content = this.props.loginState!==1?Login:Home;
         console.log(this.props);
           return (
               <div>
-                  {/* <Content />
-                {this.props.loginState !== 1 && <Login />}	
-                {this.props.loginState === 1 && <Home />} */}
                 <Routes />
                 <footer>
                     <h3>welcome to my react demo</h3>

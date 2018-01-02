@@ -16,10 +16,10 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isUser:Boolean,
+            // isUser:Boolean,
             // loginState:0
         };
-        this.userValidate = this.userValidate.bind(this);
+        // this.userValidate = this.userValidate.bind(this);
         this.toLogin = this.toLogin.bind(this);
     }
     componentWillMount(){
@@ -27,6 +27,10 @@ class Login extends Component{
     }
 
     toLogin(){
+
+        /*========this code  instead by async action ========*/
+        /*===I advice you write this fetch in async action===*/
+
         // return fetch("user.json",{
         //     method:"post",
         //     body:JSON.stringify(
@@ -52,17 +56,17 @@ class Login extends Component{
 
     //until user information has complete to post
     // according to the post request to decide next step
-    async userValidate(){
-        let userRes = await this.toLogin();
-        const { dispatch } = this.props;
-        if(userRes.status==="ok")this.state.isUser = true;
-        if(this.state.isUser)
-        console.log(`isUser is :${this.state.isUser}`); 
-    }
+    
+    /*========this code  instead by async action ========*/
+
+    // async userValidate(){
+    //     let userRes = await this.toLogin();
+    //     if(userRes.status==="ok")this.state.isUser = true;
+    //     if(this.state.isUser)
+    //     console.log(`isUser is :${this.state.isUser}`); 
+    // }
     
     render() {  
-        // const {text, onChangeText, onButtonClick} = this.props;
-
         //use styled-components
         const Form = styled.div`
             margin:200px auto;
@@ -92,10 +96,6 @@ class Login extends Component{
             background:#0499fd;
         ` 
         return (  
-            // <div>  
-            //     <h1 onClick={onChangeText}> {text} </h1>  
-            //     <button onClick={onButtonClick}>click me</button>  
-            // </div>
             <Form>
                 <Input type="text" name="username" ref="username" placeholder="username"/>
                 <Input type="password" name="password" ref="password" placeholder="password" />

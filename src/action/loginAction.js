@@ -1,8 +1,5 @@
 //login actions
 
-// const LOG_IN = {
-//     type:'LOG_IN'
-// }
 import { LOG_IN,LOG_OUT } from '../actionTypes/loginTypes';
  
 const toLogIn = ()=>{
@@ -31,9 +28,6 @@ const toLogIn = ()=>{
         new Promise((resolve,reject)=>{
 			console.log("ok")
 			setTimeout(()=>{
-				// setTimeStore('userInfo',{
-				// 	username:obj.username
-				// })
 				resolve({
 					type:LOG_IN.type
 				})
@@ -43,8 +37,5 @@ const toLogIn = ()=>{
 		})
     }
 }
-// const LOG_OUT = {
-//     type:'LOG_OUT'
-// }
 
 export {toLogIn,LOG_OUT};
