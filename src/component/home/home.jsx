@@ -1,10 +1,7 @@
 import React, { Component } from 'react';  
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';   
-import { connect } from 'react-redux'; 
-
-import { buttonClickAction,changeTextAction } from '../action/action';
-  
+import { connect } from 'react-redux';   
   
 //定义组件  
 class Home extends Component{

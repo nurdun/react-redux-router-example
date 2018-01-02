@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';   
 import { connect } from 'react-redux'; 
 
-import { buttonClickAction,changeTextAction } from './action/action';
-import {toLogIn,LOG_OUT} from './action/loginAction';
-import { logState } from './reducer/loginReducer';
-import { rootReducer } from './reducer/reducer';
+import {toLogIn,LOG_OUT} from '../../action/loginAction';
+import { logState } from '../../reducer/loginReducer';
+import { rootReducer } from '../../reducer/reducer';
 
 import './login.css';
   
@@ -29,7 +28,7 @@ class Login extends Component{
     toLogin(){
 
         /*========this code  instead by async action ========*/
-        /*===I advice you write this fetch in async action===*/
+        /*===I advice you write this fetch code in async action===*/
 
         // return fetch("user.json",{
         //     method:"post",

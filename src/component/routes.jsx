@@ -1,14 +1,10 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux';
 
-import { toLogIn } from './action/loginAction';
-import { rootReducer } from './reducer/reducer';
+import { rootReducer } from '../reducer/reducer';
 
-import Home  from './component/home';
-import Login from './login';
-
-import './login.css';
-  
+import Home  from './home/home';
+import Login from './login/login';  
   
 //定义组件  
 class Routes extends Component{

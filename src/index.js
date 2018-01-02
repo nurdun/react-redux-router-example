@@ -14,7 +14,7 @@ import {
 
 //   import Login from './login';
 //   import Home from './component/home';
-import Routes from './routes';
+import Routes from './component/routes';
 
 
   class App extends React.Component{
