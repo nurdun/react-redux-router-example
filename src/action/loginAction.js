@@ -2,34 +2,14 @@
 
 import { LOG_IN,LOG_OUT } from '../actionTypes/loginTypes';
  
-const toLogIn = ()=>{
+const toLogIn = (username)=>{
     return dispatch => {
-        //  fetch('test.json')
-        // .then(res=>res.json())
-        // .then(res=>{
-        //     if(res.status=='ok'){
-        //          dispatch(LOG_IN);
-        //         // return {
-        //         //     type:LOG_IN.type
-        //         // }
-        //     }
-        //     // dispatch(LOG_IN.type);
-        //     // return {
-        //     //     type:LOG_IN.type
-        //     // }
-        // })
-        // .catch(err=>{
-        //      dispatch(LOG_IN);
-        //     // return {
-        //     //     type:LOG_IN.type
-        //     // }
-        // })
-        // dispatch(LOG_IN);
         new Promise((resolve,reject)=>{
-			console.log("ok")
+			console.log("to login");
 			setTimeout(()=>{
 				resolve({
-					type:LOG_IN.type
+                    type:LOG_IN.type,
+                    username:username
 				})
 			},1000)
 		}).then(res=>{
@@ -38,4 +18,19 @@ const toLogIn = ()=>{
     }
 }
 
-export {toLogIn,LOG_OUT};
+const toLogOut = ()=>{
+    return dispatch => {
+        new Promise((resolve,reject)=>{
+			console.log("to logout");
+			setTimeout(()=>{
+				resolve({
+                    type:LOG_OUT.type
+				})
+			},1000)
+		}).then(res=>{
+			dispatch(res)
+		})
+    }
+}
+
+export {toLogIn,toLogOut};

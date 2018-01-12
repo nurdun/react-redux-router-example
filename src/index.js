@@ -3,19 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
-import { store } from './store/store';  
+import { store } from './store/store';
 
 import {
-    BrowserRouter as Router,
+    Router,
     HashRouter,
     Route,
-    Link
-  } from 'react-router-dom'
+    Link,
+    Switch
+  } from 'react-router'
 
-//   import Login from './login';
-//   import Home from './component/home';
-import Routes from './component/routes';
+import Login from './component/login/login';
+import Home from './component/home/home';
 
+import history from './component/public/history';
 
   class App extends React.Component{
       constructor(props){
@@ -26,7 +27,6 @@ import Routes from './component/routes';
       }
       componentDidMount() {
           console.log(this.props);
-          console.log(this.state);
           console.log(store);
       }
 
@@ -34,7 +34,12 @@ import Routes from './component/routes';
         console.log(this.props);
           return (
               <div>
-                <Routes />
+                <Router history={history}>
+                    <Switch>
+                        <Route exact path='/' component={Login} />
+                        <Route path='/Home' component={Home} />
+                    </Switch>
+                </Router>
                 <footer>
                     <h3>welcome to my react demo</h3>
                     <span className="author">@author by nurdun</span>
@@ -45,18 +50,10 @@ import Routes from './component/routes';
       }
   }
 
-  //declare route
- const route = (
-     //use Router instead of HashRouter
-    <Provider store = {store}>
-        <Router history={Router}>
-            <Route path='/' component={App}/> 
-        </Router>
-    </Provider>
- ) 
-
 ReactDOM.render(
-    route,
+    <Provider store = {store}>
+        <App />
+    </Provider>,
     document.getElementById('root')
 );
 registerServiceWorker();
