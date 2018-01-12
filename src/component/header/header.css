@@ -8,7 +8,7 @@
 .Title{
     position: absolute;
     left: 50%;
-    margin-top:5%;
+    margin-top:3%;
     font-size: 24px;
     color: #666666;
 
@@ -16,7 +16,7 @@
 
 .User{
     float: right;
-    margin: 2.5% 50px;
+    margin: 2% 50px;
 }
 
 .User div{
