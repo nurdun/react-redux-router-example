@@ -42,6 +42,8 @@ class Home extends Component{
        this.rootRoute(this.props.loginState.loginState);
    }
 
+ /*== according to loginState props to change router ==*/
+ 
    rootRoute(loginstate){
         loginstate !== 1?history.push('/'):history.push('/Home');
     }   
