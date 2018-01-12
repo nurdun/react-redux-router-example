@@ -43,7 +43,7 @@ class Home extends Component{
    }
 
  /*== according to loginState props to change router ==*/
- 
+
    rootRoute(loginstate){
         loginstate !== 1?history.push('/'):history.push('/Home');
     }   
@@ -59,7 +59,6 @@ class Home extends Component{
                         <span>click here to logout</span>
                         <button onClick={this.logOut}>logout</button>
                     </div>
-                    
                 </div>
            </div>
         )
