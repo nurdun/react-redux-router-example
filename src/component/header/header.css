@@ -1,35 +1,37 @@
-.Header{
+.Header {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100px;
     box-shadow: 0 0 2px 2px #cccccc;
 }
-.Title{
+
+.Title {
     position: absolute;
     left: 50%;
-    margin-top:3%;
+    margin-top: 3%;
+    transform: translate(-50%);
     font-size: 24px;
     color: #666666;
-
 }
 
-.User{
+.User {
     float: right;
     margin: 2% 50px;
 }
 
-.User div{
+.User div {
     float: left;
 }
 
-.user-prof{
+.user-prof {
     width: 50px;
     height: 50px;
-    border:1px solid #cccccc;
+    border: 1px solid #cccccc;
     border-radius: 50%;
 }
-.userName{
+
+.userName {
     margin-left: 5px;
     line-height: 50px;
 }
