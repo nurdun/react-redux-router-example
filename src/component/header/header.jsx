@@ -1,6 +1,4 @@
-import React, { Component } from 'react';  
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';   
+import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
 
 import './header.css';

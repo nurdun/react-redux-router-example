@@ -1,10 +1,7 @@
 //declare login action types
 
-const LOG_IN = {
-    type: 'LOG_IN'
-}
-const LOG_OUT = {
-    type: 'LOG_OUT'
-}
+const LOG_IN = 'LOG_IN';
+
+const LOG_OUT = 'LOG_OUT';
 
 export { LOG_IN,LOG_OUT }

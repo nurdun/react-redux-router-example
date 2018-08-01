@@ -1,10 +1,6 @@
-import React, { Component } from 'react';  
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';   
+import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
-
 import Header from '../header/header';
-
 import { toLogOut } from '../../action/loginAction';
 import history from '../public/history';
 
@@ -16,6 +12,7 @@ class Home extends Component{
         super(props);
         this.state = {
             // ...
+            username:''
         };
         this.logOut = this.logOut.bind(this);
     }
@@ -23,6 +20,9 @@ class Home extends Component{
     componentWillMount(){
         console.log(this.props);
         this.rootRoute(this.props.loginState.loginState);
+        if(this.props.loginState.userData){
+            this.state.username = this.props.loginState.userData.username;
+        }
     }
 
 /*== dispach LOG_OUT action type ==*/
@@ -54,7 +54,7 @@ class Home extends Component{
                 <Header />
                 <div className="Content">
                     <h3>welcome to HOME page</h3>
-                    <h4>your username is {this.props.loginState.username}</h4>
+                    <h4>your username is {this.state.username}</h4>
                     <div className="Logout">
                         <span>click here to logout</span>
                         <button onClick={this.logOut}>logout</button>

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';  
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';   
 import { connect } from 'react-redux';
 
 import { toLogIn } from '../../action/loginAction';
-import { rootReducer } from '../../reducer/reducer';
 import history from '../public/history';
 
 import './login.css';
@@ -14,11 +12,17 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
+            // userData:{
+            //     username:'',
+            //     password:''
+            // },
             username:'',
+            password:'' 
         };
         this.userValidate = this.userValidate.bind(this);
         this.toLogin = this.toLogin.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.usernameChange = this.usernameChange.bind(this);
+        this.passwordChange = this.passwordChange.bind(this);
     }
     componentWillMount(){
         console.log(this.props);
@@ -38,12 +42,15 @@ class Login extends Component{
 
     toLogin(){
         return new Promise((resolve,reject)=>{
-             const { dispatch } = this.props                  
-             dispatch(toLogIn(this.state.username))
-             console.log(this.refs.username.value);
-             setTimeout(()=>{
-                 resolve(); 
-             },1100);     
+             const { dispatch } = this.props
+             const userData = {
+                 username:this.state.username,
+                 password:this.state.password
+             }                  
+             dispatch(toLogIn(userData))
+             .then(res=>{
+                resolve(); 
+             })   
         })
      }
     
@@ -59,17 +66,22 @@ class Login extends Component{
     }
     /*====== Input Change =======*/
     
-    handleChange(event) {
+    usernameChange(event) {
         this.setState({
-            username: event.target.value
-        });
+            username:event.target.value
+        }) 
+    }
+    passwordChange(event) {
+        this.setState({
+            password:event.target.value
+        })
     }
     
     render() {
         return (  
             <div className="Form">
-                <input className="Input" type="text" name="username" ref="username" placeholder="username" value={this.state.username} onChange={this.handleChange} />
-                <input className="Input" type="password" name="password" ref="password" placeholder="password" />
+                <input className="Input" type="text" name="username" ref="username" placeholder="username" value={this.state.username} onChange={this.usernameChange} />
+                <input className="Input" type="password" name="password" ref="password" placeholder="password" value={this.state.password} onChange={this.passwordChange} />
                 <button className="Submit" onClick = {this.userValidate} >登陆</button> 
             </div>  
         );  
