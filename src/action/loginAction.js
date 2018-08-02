@@ -19,7 +19,7 @@ import LoginApi from '../API/loginAPI'
 //     }
 // }
 
-const toLogIn = (userData)=>{
+const toLogInAction = (userData)=>{
     return dispatch => {
         return LoginApi.getUserData()
 		.then(data=>{
@@ -37,7 +37,7 @@ const getUserDataSuccess = (userData)=>{
 	}
 }
 
-const toLogOut = ()=>{
+const toLogOutAction = ()=>{
     return dispatch => {
         new Promise((resolve,reject)=>{
 			console.log("to logout");
@@ -52,4 +52,4 @@ const toLogOut = ()=>{
     }
 }
 
-export {toLogIn,toLogOut};
+export {toLogInAction,toLogOutAction};

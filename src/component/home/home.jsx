@@ -1,7 +1,7 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
 import Header from '../header/header';
-import { toLogOut } from '../../action/loginAction';
+import { toLogOutAction } from '../../action/loginAction';
 import history from '../public/history';
 
 import './home.css';
@@ -29,7 +29,7 @@ class Home extends Component{
    awaitLogOut(){
        let {dispatch} = this.props;
        return new Promise((resolve,reject)=>{
-            dispatch(toLogOut());
+            dispatch(toLogOutAction());
             setTimeout(()=>{
                 resolve();
             },1010)
