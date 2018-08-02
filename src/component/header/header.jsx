@@ -9,14 +9,16 @@ class Header extends Component{
         super(props);
         this.state = {
             //.....
-            username:''
+            username:'',
+            userPic:''
         };
     }
 
    componentWillMount(){
        console.log(this.props);
        if(this.props.loginState.userData){
-           this.state.username = this.props.loginState.userData.username; 
+           this.state.username = this.props.loginState.userData.username;
+           this.state.userPic = this.props.loginState.userData.userPic; 
        }
    }
 
@@ -29,7 +31,7 @@ class Header extends Component{
                 </div>
                 <div className="User">
                     <div className="user-prof">
-                        <img src="21169652.png" alt="用户"/>
+                        <img src={this.state.userPic} alt="用户"/>
                     </div>
                     <div className="userName">
                         <span>{this.state.username}</span>

@@ -50,11 +50,11 @@ import history from './component/public/history';
       }
   }
 
-ReactDOM.render(
+export default ReactDOM.render(
     <Provider store = {store}>
         <App />
     </Provider>,
-    document.getElementById('root')
+    document.getElementById('root')|| document.createElement('div')
 );
 registerServiceWorker();
 
