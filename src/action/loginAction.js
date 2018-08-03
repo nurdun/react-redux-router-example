@@ -1,6 +1,6 @@
 //login actions
 
-import * as types from '../actionTypes/loginTypes';
+import * as types from '../actionTypes/actionTypes';
 import LoginApi from '../API/loginAPI'
  
 // const toLogIn = (username)=>{

@@ -1,6 +1,6 @@
 /*===== reducer =====*/
 
-import * as types from '../actionTypes/loginTypes';
+import * as types from '../actionTypes/actionTypes';
 
 const initialState = {  
     loginState:0,

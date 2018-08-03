@@ -21,7 +21,9 @@ class Home extends Component{
         console.log(this.props);
         this.rootRoute(this.props.loginState.loginState);
         if(this.props.loginState.userData){
-            this.state.username = this.props.loginState.userData.username;
+            this.setState({
+                username : this.props.loginState.userData.username
+           })
         }
     }
 

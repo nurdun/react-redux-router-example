@@ -17,8 +17,10 @@ class Header extends Component{
    componentWillMount(){
        console.log(this.props);
        if(this.props.loginState.userData){
-           this.state.username = this.props.loginState.userData.username;
-           this.state.userPic = this.props.loginState.userData.userPic; 
+           this.setState({
+                username : this.props.loginState.userData.username,
+                userPic: this.props.loginState.userData.userPic
+           })
        }
    }
 
