@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { toLogInAction } from '../../action/loginAction';
-import history from '../public/history';
+import history from '../../component/public/history';
 
 import './login.css';
   
@@ -89,10 +89,10 @@ function mapStateToProps(state) {
 }  
   
 //映射Redux actions到组件的属性  
-// function mapDispatchToProps(dispatch){  
+// function mapDispatchToProps(dispatch,userData){  
 //     return{  
-//         onLogIn:()=>{
-//             dispatch(rootReducer(toLogIn)); 
+//         getUserData:()=>{
+//             dispatch(toLogInAction(userData)) 
 //         } 
 //     }  
 // }  

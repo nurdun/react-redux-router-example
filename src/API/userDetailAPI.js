@@ -1,5 +1,5 @@
-class LoginApi{
-    static getUserData(){
+class UserDetail{
+    static getUserDetail(){
         return fetch('userDetail.json')
         .then(data=>{
             return data.json();
@@ -9,4 +9,4 @@ class LoginApi{
     }
 }
 
-export default LoginApi;
+export default UserDetail;

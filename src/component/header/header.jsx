@@ -1,5 +1,7 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
+import { toUserDetailAction } from '../../action/toUserDetailAction';
+import history from '../public/history';
 
 import './header.css';
   
@@ -10,28 +12,47 @@ class Header extends Component{
         this.state = {
             //.....
             username:'',
-            userPic:''
+            userPic:'',
+            pagetitle:''
         };
+        this.toUserDetail = this.toUserDetail.bind(this);
+        this.toUserDetailSeccess = this.toUserDetailSeccess.bind(this);
     }
 
    componentWillMount(){
+       debugger
        console.log(this.props);
        if(this.props.loginState.userData){
            this.setState({
                 username : this.props.loginState.userData.username,
-                userPic: this.props.loginState.userData.userPic
+                userPic: this.props.loginState.userData.userPic,
+                pagetitle:this.props.pagetitle
            })
        }
    }
 
+   toUserDetail(){
+        return new Promise((resolve,reject)=>{
+            const { dispatch } = this.props                
+            dispatch(toUserDetailAction())
+            .then(res=>{
+                resolve(); 
+            })   
+        })
+   }
+
+   async toUserDetailSeccess(){
+    await this.toUserDetail();
+     if(this.props.userDetail.pageState == 1) history.push('/Home/UserDetail');
+   }
     
     render() {  
         return (
             <header className="Header">
                 <div className="Title">
-                    <span>HOME</span>
+                    <span>{this.state.pagetitle}</span>
                 </div>
-                <div className="User">
+                <div className="User" onClick={this.toUserDetailSeccess}>
                     <div className="user-prof">
                         <img src={this.state.userPic} alt="用户"/>
                     </div>
@@ -47,7 +68,7 @@ class Header extends Component{
 
 //映射Redux state到组件的属性  
 function mapStateToProps(state) {  
-    return { loginState: state.setLogState }  
+    return { loginState: state.setLogState ,userDetail: state.toUserDetailState}  
 }   
   
 //映射Redux actions到组件的属性  

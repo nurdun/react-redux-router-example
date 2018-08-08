@@ -1,0 +1,28 @@
+.Content {
+    position: absolute;
+    left: 50%;
+    margin-top: 150px;
+    transform: translate(-50%);
+    width: 400px;
+    height: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    color: #666666;
+}
+
+h4 {
+    margin-top: 80px;
+}
+
+.Logout {
+    margin-top: 100px;
+}
+
+.Logout button {
+    width: 60px;
+    height: 24px;
+    border-radius: 5px;
+    margin-left: 5px;
+}

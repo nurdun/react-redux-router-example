@@ -31,7 +31,7 @@ const toLogInAction = (userData)=>{
 }
 
 const getUserDataSuccess = (userData)=>{
-	return{
+	return {
 		type:types.LOG_IN,
 		userData
 	}

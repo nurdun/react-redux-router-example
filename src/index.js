@@ -13,8 +13,9 @@ import {
     Switch
   } from 'react-router'
 
-import Login from './component/login/login';
-import Home from './component/home/home';
+import Login from './views/login/login';
+// import Home from './views/home/home';
+import Layout from './views/Layout';
 
 import history from './component/public/history';
 
@@ -37,7 +38,7 @@ import history from './component/public/history';
                 <Router history={history}>
                     <Switch>
                         <Route exact path='/' component={Login} />
-                        <Route path='/Home' component={Home} />
+                        <Route path='/Home' component={Layout} />
                     </Switch>
                 </Router>
                 <footer>

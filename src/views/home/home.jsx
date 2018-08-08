@@ -1,8 +1,8 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
-import Header from '../header/header';
+import Header from '../../component/header/header';
 import { toLogOutAction } from '../../action/loginAction';
-import history from '../public/history';
+import history from '../../component/public/history';
 
 import './home.css';
   
@@ -12,7 +12,8 @@ class Home extends Component{
         super(props);
         this.state = {
             // ...
-            username:''
+            username:'',
+            pagetitle:'HOME'
         };
         this.logOut = this.logOut.bind(this);
     }
@@ -52,8 +53,8 @@ class Home extends Component{
     
     render() {  
         return (
-           <div>
-                <Header />
+           <div >
+                <Header pagetitle = {this.state.pagetitle} />
                 <div className="Content">
                     <h3>welcome to HOME page</h3>
                     <h4>your username is {this.state.username}</h4>
