@@ -1,6 +1,8 @@
+
+import {serverPath} from './const'
 class UserDetail{
     static getUserDetail(){
-        return fetch('userDetail.json')
+        return fetch(`${serverPath}/userDetail.json`)
         .then(data=>{
             return data.json();
         }).catch(err=>{

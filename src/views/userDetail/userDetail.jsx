@@ -1,6 +1,5 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
-import Header from '../../component/header/header';
 import history from '../../component/public/history';
 import { toLogOutAction } from '../../action/loginAction';
 
@@ -20,12 +19,12 @@ class UserDetail extends Component{
     componentWillMount(){
         console.log(this.props);
         if(this.props.loginState.userDetail){
-            this.setState({
-                username : this.props.userDetail.userDetailData.username,
-                sex : this.props.userDetail.userDetailData.sex,
-                age : this.props.userDetail.userDetailData.age,
-                email : this.props.userDetail.userDetailData.email
-           })
+        //     this.setState({
+        //         username : this.props.userDetail.userDetailData.username,
+        //         sex : this.props.userDetail.userDetailData.sex,
+        //         age : this.props.userDetail.userDetailData.age,
+        //         email : this.props.userDetail.userDetailData.email
+        //    })
         }
     }
 
@@ -38,10 +37,6 @@ class UserDetail extends Component{
                 resolve();
             },1010)
        })    
-   }
-
-   exitUserDetail(){
-
    }
 
 /*== back to login page ==*/
@@ -60,7 +55,7 @@ class UserDetail extends Component{
         return (
            <div >
                 <div className="ud-Content">
-                    <h3>welcome to HOME page</h3>
+                    <h3> User Detail page</h3>
                     <h4>User Name: {this.state.username}</h4>
                     <h4>Sex: {this.state.sex}</h4>
                     <h4>Age: {this.state.age}</h4>

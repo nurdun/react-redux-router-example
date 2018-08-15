@@ -1,6 +1,5 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
-import Header from '../../component/header/header';
 import { toLogOutAction } from '../../action/loginAction';
 import history from '../../component/public/history';
 

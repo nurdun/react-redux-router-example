@@ -1,6 +1,5 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
-import { toUserDetailAction } from '../../action/toUserDetailAction';
 import history from '../../component/public/history';
 import Header from '../../component/header/header';
 import {
@@ -32,12 +31,6 @@ class Layout extends Component{
 
    componentWillMount(){
        console.log(this.props);
-       if(this.props.loginState.userData){
-           this.setState({
-                username : this.props.loginState.userData.username,
-                userPic: this.props.loginState.userData.userPic,
-           })
-       }
    }
 
     render() {  
