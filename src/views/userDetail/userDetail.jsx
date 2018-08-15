@@ -12,19 +12,13 @@ class UserDetail extends Component{
         super(props);
         this.state = {
             // ...
-            username:'',
-            sex:'',
-            age:'',
-            email:'',
-            pagetitle:'User Detail'
+            ...this.props.userDetail.userDetailData
         };
         this.logOut = this.logOut.bind(this);
     }
 
     componentWillMount(){
-        debugger
         console.log(this.props);
-        this.rootRoute(this.props.loginState.loginState);
         if(this.props.loginState.userDetail){
             this.setState({
                 username : this.props.userDetail.userDetailData.username,
@@ -65,8 +59,7 @@ class UserDetail extends Component{
     render() {  
         return (
            <div >
-                <Header pagetitle = {this.state.pagetitle} />
-                <div className="Content">
+                <div className="ud-Content">
                     <h3>welcome to HOME page</h3>
                     <h4>User Name: {this.state.username}</h4>
                     <h4>Sex: {this.state.sex}</h4>

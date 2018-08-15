@@ -1,6 +1,7 @@
 import React, { Component } from 'react';   
 import { connect } from 'react-redux'; 
-import { toUserDetailAction } from '../../action/toUserDetailAction';
+import { toLogInAction } from '../../action/loginAction';
+import {toUserDetailAction} from '../../action/toUserDetailAction';
 import history from '../public/history';
 
 import './header.css';
@@ -12,15 +13,14 @@ class Header extends Component{
         this.state = {
             //.....
             username:'',
-            userPic:'',
-            pagetitle:''
+            userPic:''
         };
         this.toUserDetail = this.toUserDetail.bind(this);
         this.toUserDetailSeccess = this.toUserDetailSeccess.bind(this);
+        this.toHomePageSuccess = this.toHomePageSuccess.bind(this);
     }
 
    componentWillMount(){
-       debugger
        console.log(this.props);
        if(this.props.loginState.userData){
            this.setState({
@@ -41,16 +41,30 @@ class Header extends Component{
         })
    }
 
+   toHomePage(){
+        return new Promise((resolve,reject)=>{
+            const { dispatch } = this.props                
+            dispatch(toLogInAction())
+             .then(res=>{
+                resolve(); 
+             })     
+        })
+   }
+
    async toUserDetailSeccess(){
     await this.toUserDetail();
      if(this.props.userDetail.pageState == 1) history.push('/Home/UserDetail');
+   }
+   async toHomePageSuccess(){
+       await this.toHomePage();
+       history.push('/Home');
    }
     
     render() {  
         return (
             <header className="Header">
-                <div className="Title">
-                    <span>{this.state.pagetitle}</span>
+                <div className="Title" onClick={this.toHomePageSuccess}>
+                    <span>HOME</span>
                 </div>
                 <div className="User" onClick={this.toUserDetailSeccess}>
                     <div className="user-prof">

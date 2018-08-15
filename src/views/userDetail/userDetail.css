@@ -1,10 +1,10 @@
-.Content {
+.ud-Content {
     position: absolute;
     left: 50%;
     margin-top: 150px;
     transform: translate(-50%);
     width: 400px;
-    height: 300px;
+    height: 500px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #cccccc;
@@ -12,8 +12,8 @@
     color: #666666;
 }
 
-h4 {
-    margin-top: 80px;
+.ud-Content h4 {
+    margin-top: 40px;
 }
 
 .Logout {

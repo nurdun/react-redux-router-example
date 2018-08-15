@@ -14,8 +14,7 @@ import {
   } from 'react-router'
 
 import Login from './views/login/login';
-// import Home from './views/home/home';
-import Layout from './views/Layout';
+import Layout from './views/Layout/Layout';
 
 import history from './component/public/history';
 

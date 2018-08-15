@@ -11,7 +11,6 @@ const initialState = {
 }
 
 export const toUserDetailState = (state=initialState,action)=>{
-    debugger
     switch (action.type){
         case types.USER_DETAIL_SUCCESS:
             return {

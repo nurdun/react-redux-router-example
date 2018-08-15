@@ -20,7 +20,7 @@ class Home extends Component{
 
     componentWillMount(){
         console.log(this.props);
-        this.rootRoute(this.props.loginState.loginState);
+        // this.rootRoute(this.props.loginState.loginState);
         if(this.props.loginState.userData){
             this.setState({
                 username : this.props.loginState.userData.username
@@ -54,7 +54,6 @@ class Home extends Component{
     render() {  
         return (
            <div >
-                <Header pagetitle = {this.state.pagetitle} />
                 <div className="Content">
                     <h3>welcome to HOME page</h3>
                     <h4>your username is {this.state.username}</h4>
