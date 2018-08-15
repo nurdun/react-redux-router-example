@@ -13,11 +13,13 @@
     transform: translate(-50%);
     font-size: 24px;
     color: #666666;
+    cursor: pointer;
 }
 
 .User {
     float: right;
     margin: 2% 50px;
+    cursor: pointer;
 }
 
 .User div {
