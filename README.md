@@ -7,3 +7,4 @@ A simple demo for react16,react-redux,thunk middleware with async actions,react-
 `
   npm start
 `
+It will open a new page on `localhost:8622`
