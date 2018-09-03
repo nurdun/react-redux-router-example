@@ -4,7 +4,10 @@ A simple demo for react16,react-redux,thunk middleware with async actions,react-
 `
   npm install
 `
+<br />
 `
   npm start
 `
+<br />
+
 It will open a new page on `localhost:8622`
